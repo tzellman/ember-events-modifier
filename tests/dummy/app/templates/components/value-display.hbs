@@ -1,0 +1,10 @@
+<div
+    class="text-indigo-700 text-white p-2 text-2xl text-center"
+    {{on-event "valueSet" (fn (mut this.value))}}
+>
+    {{#if this.value}}
+        You clicked {{this.value}} times!
+    {{else}}
+        You have not clicked yet!
+    {{/if}}
+</div>
