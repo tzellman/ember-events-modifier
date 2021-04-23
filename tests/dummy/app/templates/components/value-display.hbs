@@ -3,7 +3,9 @@
     {{on-event "valueSet" (fn (mut this.value))}}
 >
     {{#if this.value}}
-        You clicked {{this.value}} times!
+        <span {{trigger-event "hasClicked"}}>
+            You clicked {{this.value}} times!
+        </span>
     {{else}}
         You have not clicked yet!
     {{/if}}
