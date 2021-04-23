@@ -10,11 +10,13 @@ module('Unit | Service | events', function (hooks) {
     });
 
     test('service functionality', function (assert) {
-        assert.expect(1);
+        assert.expect(3);
         const service = this.owner.lookup('service:events');
         service.on('foo', null, (value) => {
             assert.ok(value === 'bar', 'got expected result');
         });
+        assert.ok(service.has('foo'));
+        assert.notOk(service.has('bar'));
         service.trigger('foo', 'bar');
     });
 });

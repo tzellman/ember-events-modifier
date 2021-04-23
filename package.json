@@ -2,12 +2,7 @@
   "name": "ember-events-modifier",
   "version": "0.1.0",
   "description": "eventing modifiers",
-  "keywords": [
-    "ember-addon",
-    "events",
-    "modifier",
-    "element-modifier"
-  ],
+  "keywords": ["ember-addon", "events", "modifier", "element-modifier"],
   "repository": "https://github.com/tzellman/ember-events-modifier.git",
   "license": "MIT",
   "author": "tzellman",
@@ -76,7 +71,7 @@
     "eslint-plugin-ember": "^10.3.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "husky": "4.3.8",
+    "husky": "^4.3.8",
     "loader.js": "^4.7.0",
     "micromatch": "^4.0.4",
     "npm-run-all": "^4.1.5",

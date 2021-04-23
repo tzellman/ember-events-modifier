@@ -20,6 +20,23 @@ ember install ember-events-modifier
 
 ## Usage
 
+The addon provides an `events` service which can be used to facilitate events throughout your application. You can use
+the service directly, without using the `modifiers`, described below.
+
+```javascript
+import Controller from "@ember/controller";
+import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
+
+export default class MyController extends Controller {
+    @service events;
+
+    @action clickedBook(book) {
+        this.events.trigger(`book:active:${book.id}`, book);
+    }
+}
+```
+
 ### on-event
 
 The `on-event` modifier allows you to register a handler for specific events.
@@ -29,9 +46,23 @@ Your action handler will be passed arguments that are provided when the action i
 Note that the handler is automatically registered and removed on insertion/removal, respectively.
 
 ```handlebars
-    <div {{on-event "blog-updated" this.reloadBlog}}>
+
+<div {{on-event "blog-updated" this.reloadBlog}}>
+    ...
+</div>
+```
+
+### trigger-event
+
+The `trigger-event` modifier allows you to trigger an event when the element is inserted.
+
+```handlebars
+
+{{#if this.showDetails}}
+    <div {{trigger-event (concat "book:showing-details:" @book.id) @book}}>
         ...
     </div>
+{{/if}}
 ```
 
 ## Compatibility
