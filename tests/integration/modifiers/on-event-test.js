@@ -18,7 +18,7 @@ module('Integration | Modifier | on-event', function (hooks) {
     test('event with arguments', async function (assert) {
         assert.expect(2);
         this.set('handleEvent', (...args) => {
-            assert.equal(args.length, 3);
+            assert.strictEqual(args.length, 3);
             assert.deepEqual(args, ['link', 'zelda', 'ganon']);
         });
         await render(hbs`<div {{on-event "foo" this.handleEvent}}></div>`);

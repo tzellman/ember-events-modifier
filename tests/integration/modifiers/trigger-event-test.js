@@ -10,7 +10,7 @@ module('Integration | Modifier | trigger-event', function (hooks) {
         assert.expect(1);
         const service = this.owner.lookup('service:events');
         service.on('foo', null, (value) => {
-            assert.ok(value === 'bar', 'got expected result');
+            assert.strictEqual(value, 'bar', 'got expected result');
         });
         await render(hbs`<div {{trigger-event "foo" "bar"}}></div>`);
         await render(hbs`<div {{trigger-event "bar" "baz"}}></div>`);
@@ -20,10 +20,10 @@ module('Integration | Modifier | trigger-event', function (hooks) {
         assert.expect(3);
         const service = this.owner.lookup('service:events');
         service.on('foo', null, (value) => {
-            assert.ok(value === 'bar', 'got expected result');
+            assert.strictEqual(value, 'bar', 'got expected result');
         });
         service.on('bar', null, (...args) => {
-            assert.equal(args.length, 3);
+            assert.strictEqual(args.length, 3);
             assert.deepEqual(args, ['link', 'zelda', 'ganon']);
         });
         await render(hbs`<div {{trigger-event "foo" "bar"}}></div>`);
