@@ -46,7 +46,6 @@ Your action handler will be passed arguments that are provided when the action i
 Note that the handler is automatically registered and removed on insertion/removal, respectively.
 
 ```handlebars
-
 <div {{on-event "blog-updated" this.reloadBlog}}>
     ...
 </div>
@@ -57,7 +56,6 @@ Note that the handler is automatically registered and removed on insertion/remov
 The `trigger-event` modifier allows you to trigger an event when the element is inserted.
 
 ```handlebars
-
 {{#if this.showDetails}}
     <div {{trigger-event (concat "book:showing-details:" @book.id) @book}}>
         ...
@@ -67,9 +65,8 @@ The `trigger-event` modifier allows you to trigger an event when the element is 
 
 ## Compatibility
 
--   Ember.js v3.12 or above
--   Ember CLI v2.13 or above
--   Node.js v10 or above
+-   Ember.js v3.20 or above
+-   Node.js v12 or above
 
 ## Contributing
 
