@@ -1,7 +1,7 @@
-import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
 export default class ValueDisplayComponent extends Component {
     @service events;
@@ -10,6 +10,12 @@ export default class ValueDisplayComponent extends Component {
     @action
     onClick() {
         this.clicked++;
+        this.events.trigger('valueSet', this.clicked);
+    }
+
+    @action
+    resetValue() {
+        this.clicked = 0;
         this.events.trigger('valueSet', this.clicked);
     }
 }
