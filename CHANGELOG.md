@@ -1,5 +1,16 @@
 # Changelog
 
+### 0.4.0
+
+This is a minor release containing changes related to dependency updates.
+
+#### Changes
+
+-   Updated `ember-cli` to 4.7.0
+-   Drop support for node 12.x
+-   updated various dependency versions to the latest semver
+-   resolved ember-modifier deprecations
+
 ### 0.3.0
 
 This is a minor release containing changes related to dependency updates.

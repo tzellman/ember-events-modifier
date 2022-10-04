@@ -1,6 +1,6 @@
 {
   "name": "ember-events-modifier",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "eventing modifiers",
   "keywords": ["ember-addon", "events", "modifier", "element-modifier"],
   "repository": "https://github.com/tzellman/ember-events-modifier.git",
