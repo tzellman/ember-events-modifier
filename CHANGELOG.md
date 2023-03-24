@@ -1,5 +1,11 @@
 # Changelog
 
+### 0.5.0
+
+-   Updated dependencies
+-   ran ember-cli-update to 4.11
+-   removed extraneous CI script and updated CI actions
+
 ### 0.4.0
 
 This is a minor release containing changes related to dependency updates.
