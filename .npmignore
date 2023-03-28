@@ -22,6 +22,7 @@
 /.prettierignore
 /.prettierrc
 /.template-lintrc.js
+/.tool-versions
 /.watchmanconfig
 /bower.json
 /CONTRIBUTING.md

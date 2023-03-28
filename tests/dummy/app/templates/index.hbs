@@ -21,6 +21,12 @@
                     </div>
                 {{/if}}
             </div>
+            <ul class="text-xs" {{on-event (array "valueSet" "valueReset") this.trackEvent}}>
+                {{#each this.handledEvents as |event|}}
+                    <li>{{event}}</li>
+                {{/each}}
+            </ul>
         </div>
     </div>
+
 </div>
