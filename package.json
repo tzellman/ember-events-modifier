@@ -32,7 +32,7 @@
     "ember-modifier": "^4.1.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.5.0",
+    "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
     "@ember/optional-features": "^2.0.0",
     "@ember/render-modifiers": "^2.0.5",
