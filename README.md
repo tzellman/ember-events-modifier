@@ -51,6 +51,14 @@ Note that the handler is automatically registered and removed on insertion/remov
 </div>
 ```
 
+You can also handle multiple events with one declaration:
+
+```handlebars
+<div {{on-event (array "blog-updated" "blog-created") this.reloadBlog}}>
+    ...
+</div>
+```
+
 ### trigger-event
 
 The `trigger-event` modifier allows you to trigger an event when the element is inserted.

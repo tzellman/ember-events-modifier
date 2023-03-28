@@ -1,5 +1,14 @@
 # Changelog
 
+### 0.6.0
+
+This is a minor release with backwards-compatible changes.
+
+#### Changes
+
+-   Support multiple event handling with `{{on-event}}` modifier
+-   Updated dependencies (tailwind, commitlint/cli)
+
 ### 0.5.0
 
 -   Updated dependencies
