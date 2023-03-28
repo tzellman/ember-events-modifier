@@ -7,27 +7,30 @@ import Modifier from 'ember-modifier';
 const modifierName = 'on-event';
 
 const cleanup = (instance) => {
-    const { eventName, events } = instance;
-    if (eventName) {
+    const { eventNames, events } = instance;
+    for (const eventName of eventNames ?? []) {
         events.off(eventName, instance, instance._handler);
     }
 };
 
 export default class OnEventModifier extends Modifier {
     @service events;
-    @tracked eventName;
+    @tracked eventNames;
     @tracked handler;
 
     modify(element, positionalArgs) {
         assert(`You must provide at least 2 arguments for {{${modifierName}}}`, positionalArgs.length > 1);
-        const [eventName, handler] = positionalArgs;
+        const [eventNameOrNames, handler] = positionalArgs;
+        const eventNames = Array.isArray(eventNameOrNames) ? eventNameOrNames : [eventNameOrNames];
         assert(
-            `You must provide a string as the first positional argument for {{${modifierName}}}`,
-            typeof eventName === 'string' && eventName.length > 0
+            `You must provide a string or array of strings as the first positional argument for {{${modifierName}}}`,
+            eventNames.every((eventName) => typeof eventName === 'string' && eventName.length > 0)
         );
-        this.eventName = eventName;
+        this.eventNames = eventNames;
         this.handler = handler;
-        this.events.on(this.eventName, this, this._handler);
+        for (const eventName of this.eventNames) {
+            this.events.on(eventName, this, this._handler);
+        }
         registerDestructor(this, cleanup);
     }
 

@@ -25,4 +25,17 @@ module('Integration | Modifier | on-event', function (hooks) {
         const service = this.owner.lookup('service:events');
         service.trigger('foo', 'link', 'zelda', 'ganon');
     });
+
+    test('handle multiple events', async function (assert) {
+        assert.expect(4);
+        this.set('handleEvent', (...args) => {
+            assert.strictEqual(args.length, 3);
+            assert.deepEqual(args, ['link', 'zelda', 'ganon']);
+        });
+        await render(hbs`<div {{on-event (array "foo" "bar") this.handleEvent}}></div>`);
+        const service = this.owner.lookup('service:events');
+        service.trigger('foo', 'link', 'zelda', 'ganon');
+        service.trigger('bar', 'link', 'zelda', 'ganon');
+        service.trigger('baz', 'link', 'zelda', 'ganon');
+    });
 });
