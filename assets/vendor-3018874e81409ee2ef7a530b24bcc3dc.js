@@ -4029,10 +4029,11 @@ return"function"===(0,t.typeOf)(e.then)&&"function"===(0,t.typeOf)(e.catch)}(e)}
 var o,s,l,u
 function c(e,t,r,n){r&&Object.defineProperty(e,t,{enumerable:r.enumerable,configurable:r.configurable,writable:r.writable,value:r.initializer?r.initializer.call(n):void 0})}function d(e,t,r,n,i){var a={}
 return Object.keys(n).forEach((function(e){a[e]=n[e]})),a.enumerable=!!a.enumerable,a.configurable=!!a.configurable,("value"in a||a.initializer)&&(a.writable=!0),a=r.slice().reverse().reduce((function(r,n){return n(e,t,r)||r}),a),i&&void 0!==a.initializer&&(a.value=a.initializer?a.initializer.call(i):void 0,a.initializer=void 0),void 0===a.initializer&&(Object.defineProperty(e,t,a),a=null),a}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-const p=e=>{const{eventName:t,events:r}=e
-t&&r.off(t,e,e._handler)}
-let h=(o=class extends a.default{constructor(){super(...arguments),c(this,"events",s,this),c(this,"eventName",l,this),c(this,"handler",u,this)}modify(e,t){const[n,i]=t
-this.eventName=n,this.handler=i,this.events.on(this.eventName,this,this._handler),(0,r.registerDestructor)(this,p)}_handler(){this.handler(...arguments)}},s=d(o.prototype,"events",[n.inject],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),l=d(o.prototype,"eventName",[i.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),u=d(o.prototype,"handler",[i.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),o)
+const p=e=>{const{eventNames:t,events:r}=e
+for(const n of t??[])r.off(n,e,e._handler)}
+let h=(o=class extends a.default{constructor(){super(...arguments),c(this,"events",s,this),c(this,"eventNames",l,this),c(this,"handler",u,this)}modify(e,t){const[n,i]=t,a=Array.isArray(n)?n:[n]
+this.eventNames=a,this.handler=i
+for(const r of this.eventNames)this.events.on(r,this,this._handler);(0,r.registerDestructor)(this,p)}_handler(){this.handler(...arguments)}},s=d(o.prototype,"events",[n.inject],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),l=d(o.prototype,"eventNames",[i.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),u=d(o.prototype,"handler",[i.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),o)
 e.default=h})),define("ember-events-modifier/modifiers/trigger-event",["exports","ember-modifier","@ember/service","@ember/debug","@ember/runloop"],(function(e,t,r,n,i){"use strict"
 var a,o
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
